@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import SceneKit
+
+public func Box(width: CGFloat, height: CGFloat, length: CGFloat, radius: CGFloat? = 0) -&gt; SCNNode {
+    let box = SCNBox(width: width, height: height, length: length, chamferRadius: radius ?? 0)
+    let node = SCNNode(geometry: box)
+    return node
+}
+
+public func Ball(radius: CGFloat) -&gt; SCNNode  {
+    let ball = SCNSphere(radius: radius)
+    let node = SCNNode(geometry: ball)
+    return node
+}
+
+public func Plane(width: CGFloat, height: CGFloat) -&gt; SCNNode {
+    let plane = SCNPlane(width: width, height: height)
+    let node = SCNNode(geometry: plane)
+    return node
+}
+
+public func Pyramid(width: CGFloat, height: CGFloat, length: CGFloat) -&gt; SCNNode {
+    let pyramid = SCNPyramid(width: width, height: height, length: length)
+    let node = SCNNode(geometry: pyramid)
+    return node
+}
+
+public func Cone(topRadius: CGFloat, bottomRadius: CGFloat, height: CGFloat) -&gt; SCNNode {
+    let cone = SCNCone(topRadius: topRadius, bottomRadius: bottomRadius, height: height)
+    let node = SCNNode(geometry: cone)
+    return node
+}
+
+public func Cylinder(radius: CGFloat, height: CGFloat) -&gt; SCNNode {
+    let cylinder = SCNCylinder(radius: radius, height: height)
+    let node = SCNNode(geometry: cylinder)
+    return node
+}
+
+public func Capsule(capRadius: CGFloat, height: CGFloat) -&gt; SCNNode {
+    let capsule = SCNCapsule(capRadius: capRadius, height: height)
+    let node = SCNNode(geometry: capsule)
+    return node
+}
+
+public func Tube(innerRadius: CGFloat, outerRadius: CGFloat, height: CGFloat ) -&gt; SCNNode {
+    let tube = SCNTube(innerRadius: innerRadius, outerRadius: outerRadius, height: height)
+    let node = SCNNode(geometry: tube)
+    return node
+}
+
+public func Torus(ringRadius: CGFloat, pipeRadius: CGFloat) -&gt; SCNNode {
+    let torus = SCNTorus(ringRadius: ringRadius, pipeRadius: pipeRadius)
+    let node = SCNNode(geometry: torus)
+    return node
+}
+
+public func Text(text: String, depth: CGFloat) -&gt; SCNNode {
+    let text = SCNText(string: text, extrusionDepth: depth)
+    let node = SCNNode(geometry: text)
+    return node
+}
+
+extension SCNNode {
+    public func set(color: UIColor) {
+        self.geometry?.firstMaterial?.diffuse.contents = color
+    }
+    
+    public func set(image: UIImage) {
+        self.geometry?.firstMaterial?.diffuse.contents = image
+    }
+}
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{75, 2308}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{75, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>UserModules/UserModule.playgroundmodule/Sources/SharedCode.swift</string>
+</dict>
+</plist>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import SceneKit
+import PlaygroundSupport
+import ARKit
+
+class GameViewController: UIViewController, ARSCNViewDelegate {
+    var session = ARSession()
+    var sceneView = ARSCNView(frame: CGRect(x: 0.0, y: 0.0, width: 300.0, height: 500.0))
+    let scene = SCNScene()
+    
+    override func loadView() {
+        sceneView.scene = scene
+        sceneView.delegate = self
+        sceneView.session = session
+        
+        let config = ARWorldTrackingConfiguration()
+        sceneView.session.run(config)
+        
+        sceneView.debugOptions = [.showWorldOrigin, .showFeaturePoints]
+        
+        registerSwipeGesture()
+        self.view = sceneView
+    }
+    
+    //สร้าง gesture ขึ้นมาเหมือนตอน tap เลย
+    func registerSwipeGesture() {
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(doSomething))
+            // จากตรงนี้เราต้องบอกว่าจะให้ swipe ไปทิศทางไหน
+        swipe.direction = .up
+        sceneView.addGestureRecognizer(swipe)
+    }
+    
+    @objc func doSomething() {
+        // ทำอะไรบางอย่างเมื่อเรา swipe หน้าจอ
+    }
+}
+PlaygroundPage.current.liveView = GameViewController()
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 1123}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
